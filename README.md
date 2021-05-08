@@ -1,4 +1,4 @@
-# diploma
+# diploma (student)
 
 ## Build Setup
 
