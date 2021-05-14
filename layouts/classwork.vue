@@ -10,8 +10,9 @@
       <v-list-item class="py-2">
         <v-list-item-content>
           <v-list-item-title class="d-flex align-center">
-            <v-icon>mdi-arrow-left</v-icon
-            ><NuxtLink to="/profile"> Back </NuxtLink>
+            <nuxt-link color="#fff" :to="`/class/${$route.params.id}/classwork`"
+              ><v-icon>mdi-arrow-left</v-icon> Back</nuxt-link
+            >
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -20,25 +21,29 @@
 
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <NuxtLink :to="item.to">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </NuxtLink>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      outlined
-      elevation="0"
-      color="#fff"
       :clipped-left="clipped"
       fixed
       app
+      outlined
+      elevation="0"
+      color="#fff"
     >
-      <v-toolbar-title class="font-weight-bold headline"
-        >Profile Settings</v-toolbar-title
-      >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
-      <v-spacer></v-spacer>
+      <v-toolbar-title class="font-weight-bold">Detail</v-toolbar-title>
     </v-app-bar>
     <v-main>
       <nuxt />
@@ -57,10 +62,7 @@ export default {
       clipped: false,
       drawer: true,
       fixed: true,
-      items: [
-        { title: 'Profile', icon: 'mdi-view-dashboard' },
-        { title: 'Notifications', icon: 'mdi-image' },
-      ],
+      items: [],
       miniVariant: false,
       right: true,
       title: 'Diploma',
@@ -85,7 +87,15 @@ export default {
   caret-color: #353232 !important;
 }
 
-img {
-  object-fit: cover;
+/* .v-text-field > .v-input__control > .v-input__slot:before {
+  border-color: transparent !important;
+}
+.v-text-field > .v-input__control > .v-input__slot:hover {
+  border-color: transparent !important;
+} */
+
+a {
+  text-decoration: none;
+  color: #353232 !important;
 }
 </style>

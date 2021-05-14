@@ -8,8 +8,15 @@
       app
     >
       <v-list-item class="py-2">
-        <v-list-item-content>
-          <v-list-item-title>Aibar Bekkozhayev</v-list-item-title>
+        <v-list-item-content v-if="$auth.loggedIn">
+          <nuxt-link to="/profile"
+            ><v-list-item-title>{{
+              $auth.user.email
+            }}</v-list-item-title></nuxt-link
+          >
+        </v-list-item-content>
+        <v-list-item-content v-else>
+          <v-list-item-title>Profile</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -22,57 +29,111 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <NuxtLink :to="item.to">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </NuxtLink>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-plus-circle-outline</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>
+              <v-dialog v-model="dialog" persistent max-width="600px">
+                <template #activator="{ on, attrs }">
+                  <div v-bind="attrs" v-on="on">Create Class</div>
+                </template>
+                <v-card>
+                  <v-card-title class="d-flex justify-center">
+                    <span class="headline">Create a class</span>
+                  </v-card-title>
+                  <v-divider class="pt-5"></v-divider>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Class name"
+                            placeholder="Enter class name"
+                            outlined
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Subject"
+                            placeholder="Enter subject name"
+                            outlined
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" class="pt-0">
+                          <v-radio-group label="Type of class" class="mt-0">
+                            <div class="d-flex align-start">
+                              <v-radio
+                                class="pr-5"
+                                label="Public"
+                                value="Public"
+                              ></v-radio>
+                              <v-radio
+                                label="Private"
+                                value="Private"
+                              ></v-radio>
+                            </div>
+                          </v-radio-group>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                  </v-card-text>
+                  <v-card-actions class="d-flex justify-center pb-5">
+                    <v-btn
+                      color="#10AFA7"
+                      dark
+                      class="text-capitalize"
+                      @click="dialog = false"
+                    >
+                      Save
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
     <v-app-bar
       :clipped-left="clipped"
       fixed
       app
-      absolute
-      color="#6A76AB"
-      dark
-      shrink-on-scroll
-      prominent
-      src="https://picsum.photos/1920/1080?random"
-      fade-img-on-scroll
-      scroll-target="#scrolling-techniques-3"
+      outlined
+      elevation="0"
+      color="#fff"
     >
-      <template #img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
-        ></v-img>
-      </template>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-tabs>
+        <v-tabs-slider v-model="model" color="#353232"></v-tabs-slider>
+        <v-tab class="text-capitalize" @click="goLink('stream')">
+          Stream
+        </v-tab>
+        <v-tab class="text-capitalize" @click="goLink('classwork')"
+          >Classwork</v-tab
+        >
+        <v-tab class="text-capitalize" @click="goLink('people')">People</v-tab>
+        <!-- <v-tab class="text-capitalize" @click="goLink('classwork')"
+          >Grades</v-tab
+        > -->
+        <v-tab class="text-capitalize" @click="goLink('about')"
+          >About class</v-tab
+        >
+      </v-tabs>
+      <v-spacer />
 
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-app-bar-title>Title</v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-
-      <template #extension>
-        <v-tabs align-with-title>
-          <v-tab>Tab 1</v-tab>
-          <v-tab>Tab 2</v-tab>
-          <v-tab>Tab 3</v-tab>
-        </v-tabs>
-      </template>
+      <v-text-field
+        class="pt-4 pr-6"
+        label="Search classes, teachers"
+        prepend-icon="mdi-magnify"
+      ></v-text-field>
     </v-app-bar>
     <v-main>
       <nuxt />
@@ -87,17 +148,39 @@
 export default {
   data() {
     return {
+      dialog: false,
       clipped: false,
       drawer: true,
       fixed: true,
       items: [
-        { title: 'Feed', icon: 'mdi-view-dashboard' },
-        { title: 'Notifications', icon: 'mdi-image' },
+        {
+          title: 'Feed',
+          icon: 'mdi-view-dashboard',
+          to: '/',
+        },
+        {
+          title: 'Notifications',
+          icon: 'mdi-bell',
+          to: '/notification',
+        },
       ],
       miniVariant: false,
       right: true,
       title: 'Diploma',
     }
+  },
+  computed: {
+    model() {
+      const model = this.$route.path.substring(
+        this.$route.path.lastIndexOf('/') + 1
+      )
+      return model.charAt(0).toUpperCase() + model.slice(1)
+    },
+  },
+  methods: {
+    goLink(path) {
+      this.$router.push(path)
+    },
   },
 }
 </script>
@@ -111,10 +194,17 @@ export default {
   width: 100%;
 }
 .v-tab {
-  color: #353232;
+  color: #10afa7;
 }
 .v-application .primary--text {
-  color: #353232 !important;
-  caret-color: #353232 !important;
+  color: #10afa7 !important;
+  caret-color: #10afa7 !important;
 }
+
+/* .v-text-field > .v-input__control > .v-input__slot:before {
+  border-color: transparent !important;
+}
+.v-text-field > .v-input__control > .v-input__slot:hover {
+  border-color: transparent !important;
+} */
 </style>

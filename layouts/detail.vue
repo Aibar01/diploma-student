@@ -7,6 +7,8 @@
       elevate-on-scroll
       scroll-target="#scrolling-techniques-7"
       class="app"
+      outlined
+      elevation="0"
     >
       <v-toolbar-title class="font-weight-bold">LOGO</v-toolbar-title>
 
@@ -68,5 +70,9 @@ export default {
 a {
   text-decoration: none;
   color: black !important;
+}
+
+img {
+  object-fit: cover;
 }
 </style>

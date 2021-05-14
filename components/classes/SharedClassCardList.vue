@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <p class="h1 pt-8">Shared classes</p>
+  <div v-if="Boolean(classes.results.length)">
+    <p class="h1 pl-12 pt-8">Shared classes</p>
     <VueSlickCarousel v-bind="settings">
-      <SharedClassCard v-for="item in items" :key="item" />
+      <SharedClassCard
+        v-for="item in classes.results"
+        :key="item.id"
+        :item="item"
+      />
     </VueSlickCarousel>
   </div>
 </template>
@@ -18,9 +22,14 @@ export default {
     SharedClassCard,
     VueSlickCarousel,
   },
+  props: {
+    classes: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
-      items: [1, 2, 3, 4, 5, 6, 7, 8],
       settings: {
         centerMode: true,
         arrows: true,

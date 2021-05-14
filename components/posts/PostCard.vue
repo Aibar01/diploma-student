@@ -33,3 +33,10 @@
     </v-card-actions>
   </v-card>
 </template>
+
+<style scoped>
+a {
+  text-decoration: none;
+  color: #10afa7 !important;
+}
+</style>

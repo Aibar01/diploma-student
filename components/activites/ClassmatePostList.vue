@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div id="parent">
-      <div class="mr-md-6"><ClassmateCard /></div>
-      <div><ClassmatePostCard /></div>
+    <div v-for="item in news" id="parent" :key="item.id">
+      <div class="mr-md-6"><ClassmateCard :user="item.author" /></div>
+      <div><ClassmatePostCard :item="item" /></div>
     </div>
   </div>
 </template>
@@ -15,6 +15,12 @@ export default {
   components: {
     ClassmatePostCard,
     ClassmateCard,
+  },
+  props: {
+    news: {
+      type: Array,
+      required: true,
+    },
   },
 }
 </script>

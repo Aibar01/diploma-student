@@ -2,26 +2,38 @@
   <div>
     <v-row align="center" justify="center">
       <v-col cols="12">
-        <SharedClassCardList />
+        <SharedClassCardList :classes="classes" />
       </v-col>
     </v-row>
     <div id="parent">
-      <div class="mr-md-6"><SharedTeacher /></div>
-      <div><PostCardList /></div>
+      <ClassmatePostList :news="news.results" />
     </div>
   </div>
 </template>
 
 <script>
 import SharedClassCardList from '../components/classes/SharedClassCardList'
-import PostCardList from '../components/posts/PostCardList'
-import SharedTeacher from '../components/teachers/SharedTeacher'
+import ClassmatePostList from '../components/activites/ClassmatePostList'
 
 export default {
   components: {
     SharedClassCardList,
-    PostCardList,
-    SharedTeacher,
+    ClassmatePostList,
+  },
+  async asyncData({ $axios }) {
+    try {
+      const news = await $axios.$get('/news/news')
+      const classes = await $axios.$get('classes/student-not/')
+      return { news, classes }
+    } catch (err) {
+      return { news: [], classes: [] }
+    }
+  },
+  data() {
+    return {
+      news: [],
+      classes: [],
+    }
   },
 }
 </script>

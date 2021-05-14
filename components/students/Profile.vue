@@ -2,10 +2,15 @@
   <div>
     <v-card>
       <v-img
+        v-if="$auth.user.cover_image"
+        max-height="258"
+        :src="$auth.user.cover_image"
+      />
+      <v-img
+        v-else
         max-height="258"
         src="https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png"
-      >
-      </v-img>
+      />
     </v-card>
     <v-container>
       <v-row>
@@ -22,23 +27,33 @@
             <div id="avatar" class="pt-10 px-10">
               <v-avatar size="120">
                 <img
+                  v-if="$auth.user.avatar"
+                  alt="user"
+                  :src="$auth.user.avatar"
+                />
+                <img
+                  v-else
                   alt="user"
                   src="https://img.freepik.com/free-photo/handsome-young-businessman-in-shirt-and-eyeglasses_85574-6228.jpg?size=626&ext=jpg"
                 />
               </v-avatar>
               <v-card-subtitle class="title black--text pb-0"
-                >Айбар Беккожаев</v-card-subtitle
+                >{{ $auth.user.first_name }}
+                {{ $auth.user.last_name }}</v-card-subtitle
               >
-              <v-card-subtitle class="pt-2"
-                >Student * 4th grade</v-card-subtitle
-              >
+              <v-card-subtitle class="pt-2">Студент</v-card-subtitle>
               <v-divider></v-divider>
               <v-card-text d-flex align="start">
-                I am 4 graded student at Haileyberry School. I have a big dream
-                in my life - to become Super Cool Game Developer.
+                {{ $auth.user.bio }}
               </v-card-text>
               <v-card-text d-flex align="center">
-                <v-btn color="#BC3FF6" class="text-capitalize" text>
+                <v-btn
+                  to="profile/settings"
+                  color="#10AFA7"
+                  style="color: #10afa7 !important"
+                  class="text-capitalize"
+                  text
+                >
                   <strong> Edit Profile </strong>
                 </v-btn>
               </v-card-text>

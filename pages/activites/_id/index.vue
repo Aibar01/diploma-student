@@ -4,7 +4,7 @@
       <v-row>
         <v-col>
           <div>
-            <NuxtLink to="/activites" prefetch class="d-flex align-center">
+            <NuxtLink to="/" prefetch class="d-flex align-center">
               <v-icon>mdi-arrow-left</v-icon>
               <div class="text-capitalize font-weight-bold">Back to Main</div>
             </NuxtLink>
