@@ -28,7 +28,7 @@
           >
         </v-list-item-content>
         <v-list-item-content v-else>
-          <v-list-item-title>Profile</v-list-item-title>
+          <v-list-item-title>Профиль</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -72,7 +72,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-tabs>
         <v-tabs-slider color="#353232"></v-tabs-slider>
-        <v-tab class="text-capitalize">Feed</v-tab>
+        <v-tab class="text-capitalize">Сынып іздеңіз...</v-tab>
         <!-- <v-tab class="text-capitalize">Students Activity</v-tab> -->
       </v-tabs>
       <v-spacer />
@@ -224,17 +224,17 @@ export default {
       fixed: true,
       items: [
         {
-          title: 'Feed',
+          title: 'Басты бет',
           icon: 'mdi-view-dashboard',
           to: '/',
         },
         {
-          title: 'Notifications',
+          title: 'Хабарлама',
           icon: 'mdi-bell',
           to: '/notification',
         },
         {
-          title: 'About',
+          title: 'Көмек',
           icon: 'mdi-information',
           to: '/settings/about',
         },

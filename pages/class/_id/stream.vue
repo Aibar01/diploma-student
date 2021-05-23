@@ -1,19 +1,5 @@
 <template>
   <div class="mt-10 pl-5">
-    <v-card v-if="Boolean(items.length)" max-width="500" outlined>
-      <v-card-text>
-        <p class="headline text--primary">Communicate with your students</p>
-        <p>
-          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon>Create
-          and schedule announcements
-        </p>
-        <p>
-          <v-icon class="pr-2" color="black" x-small>mdi-circle</v-icon>Respond
-          to student posts
-        </p>
-      </v-card-text>
-    </v-card>
-
     <v-card
       v-for="item in items.results"
       :key="item.id"

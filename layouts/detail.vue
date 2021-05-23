@@ -35,8 +35,8 @@ export default {
       drawer: true,
       fixed: true,
       items: [
-        { title: 'Feed', icon: 'mdi-view-dashboard' },
-        { title: 'Notifications', icon: 'mdi-image' },
+        { title: 'Басты бет', icon: 'mdi-view-dashboard' },
+        { title: 'Хабарлама', icon: 'mdi-image' },
       ],
       miniVariant: false,
       right: true,

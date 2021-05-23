@@ -27,7 +27,7 @@
             <div>{{ item.description }}</div>
           </v-card-text>
           <v-card-text v-if="item.uploaded_file">
-            <div class="py-2">Attached file</div>
+            <div class="py-2">Қосылған файл</div>
             <div class="d-flex">
               <v-card outlined>
                 <div class="d-flex">
@@ -50,7 +50,7 @@
             </div>
           </v-card-text>
           <v-card-text v-if="item.due_date" class="font-weight-bold">
-            Due to
+            Дейін уақыт
             {{
               $moment(new Date(+item.due_date * 1000)).format(
                 'D MMM YYYY, h:mm'
@@ -66,7 +66,9 @@
           <v-card-title class="py-0">
             <v-list-item class="pl-0 pr-0 grow">
               <v-list-item-content>
-                <v-list-item-title class="title">Comments</v-list-item-title>
+                <v-list-item-title class="title"
+                  >Комментариалар</v-list-item-title
+                >
               </v-list-item-content>
             </v-list-item>
           </v-card-title>
@@ -119,7 +121,7 @@
               <v-text-field
                 v-model="comment"
                 class="pt-4 px-3"
-                label="Add comments"
+                label="Комментари құру"
               ></v-text-field>
               <v-btn
                 color="#10AFA7"
@@ -127,7 +129,7 @@
                 dark
                 class="text-capitalize"
                 type="submit"
-                >Create comment</v-btn
+                >Комментари құру</v-btn
               >
             </v-form>
           </v-card-actions>

@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row class="pl-4">
       <v-col class="pb-0">
-        <div class="text-uppercase">Teacher</div>
+        <div class="text-uppercase">Муғалім</div>
       </v-col>
     </v-row>
     <v-row>
@@ -36,7 +36,7 @@
     </v-row>
     <v-row class="pl-4">
       <v-col>
-        <div class="text-uppercase">Students</div>
+        <div class="text-uppercase">Оқушылар</div>
       </v-col>
     </v-row>
     <v-row>

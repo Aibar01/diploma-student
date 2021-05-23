@@ -60,7 +60,9 @@
           <v-card-title class="py-0">
             <v-list-item class="pl-0 pr-0 grow">
               <v-list-item-content>
-                <v-list-item-title class="title">Comments</v-list-item-title>
+                <v-list-item-title class="title"
+                  >Комментари құру</v-list-item-title
+                >
               </v-list-item-content>
             </v-list-item>
           </v-card-title>
@@ -113,7 +115,7 @@
               <v-text-field
                 v-model="comment"
                 class="pt-4 px-3"
-                label="Add comments"
+                label="Комментари құру"
               ></v-text-field>
               <v-btn
                 color="#10AFA7"
@@ -121,7 +123,7 @@
                 dark
                 class="text-capitalize"
                 type="submit"
-                >Create comment</v-btn
+                >Комментари құру</v-btn
               >
             </v-form>
           </v-card-actions>

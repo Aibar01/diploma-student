@@ -1,15 +1,11 @@
 <template>
   <v-card class="pl-5 pt-5" elevation="0" max-width="700">
     <v-row>
-      <v-col class="font-weight-bold text-uppercase">General</v-col>
-      <v-col>5 videos</v-col>
-    </v-row>
-    <v-row>
-      <v-col class="font-weight-bold text-uppercase">About course</v-col>
+      <v-col class="font-weight-bold text-uppercase">Курс туралы</v-col>
       <v-col> {{ teacherClass.about_course }} </v-col>
     </v-row>
     <v-row>
-      <v-col class="font-weight-bold text-uppercase">Syllabus</v-col>
+      <v-col class="font-weight-bold text-uppercase">Силлабус</v-col>
       <v-col class="d-flex"
         ><div v-for="prop in teacherClass.syllabus" :key="prop">
           {{ prop + ', ' }}
@@ -17,7 +13,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col class="font-weight-bold text-uppercase">Teacher</v-col>
+      <v-col class="font-weight-bold text-uppercase">Муғалім</v-col>
       <v-col>
         <v-card elevation="0" max-width="800">
           <v-card-title class="pt-0">

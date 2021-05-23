@@ -3,11 +3,23 @@
     <v-row v-if="!is_active" class="pt-5 pl-5">
       <v-col>No notifications yet</v-col>
     </v-row>
-    <v-row class="pt-5 pl-5">
+    <v-row>
+      <v-col cols="12">
+        <v-card max-width="500" elevation="0">
+          <v-spacer></v-spacer>
+          <v-card-text>
+            <v-btn color="#10AFA7" text class="text-capitalize">
+              Тазалау
+            </v-btn>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row class="pl-5">
       <v-col v-for="(item, index) in data" :key="index" cols="12">
         <v-card max-width="500" outlined>
           <v-card-text>
-            <p class="display-1 text--primary">{{ item.title }}</p>
+            <p class="text-h6 text--primary">{{ item.title }}</p>
             <div class="text--primary">
               {{ item.content }}
             </div>
@@ -61,6 +73,9 @@
 
 <script>
 export default {
+  layout(context) {
+    return 'notification'
+  },
   data() {
     return {
       is_active: true,
@@ -71,13 +86,6 @@ export default {
             'You were added to class “Learn Scratch with Chris” by your teacher Chris from your organization.',
           date: '12 Mar 2021 at 12:01',
           type: 'course',
-        },
-        {
-          title: 'Don’t miss to submit your homework!',
-          content:
-            'You have a deadline to submit your homework “Homework 1”. Upload your homework before you miss the deadline.',
-          date: '12 Mar 2021 at 12:01',
-          type: 'homework',
         },
         {
           title: 'Welcome to our App!',

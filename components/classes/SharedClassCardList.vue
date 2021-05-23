@@ -1,6 +1,6 @@
 <template>
   <div v-if="Boolean(classes.results.length)">
-    <p class="h1 pl-12 pt-8">Shared classes</p>
+    <p class="h1 pl-12 pt-8">бөліскен сыныптар</p>
     <VueSlickCarousel v-bind="settings">
       <SharedClassCard
         v-for="item in classes.results"

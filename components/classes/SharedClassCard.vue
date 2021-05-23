@@ -1,18 +1,20 @@
 <template>
   <v-card elevation="0" outlined class="mb-1 mr-md-auto" max-width="320">
-    <v-img
+    <nuxt-img
       v-if="item.class_image"
       class="white--text align-end"
       height="150px"
       width="320px"
       :src="item.class_image"
+      format="webp"
     />
-    <v-img
+    <nuxt-img
       v-else
       class="white--text align-end"
       height="150px"
       width="320px"
       src="https://images.theconversation.com/files/362834/original/file-20201012-20-wfc3qi.jpg?ixlib=rb-1.1.0&rect=97%2C135%2C4804%2C3493&q=45&auto=format&w=496&fit=clip"
+      format="webp"
     />
     <v-card-title class="pb-0 font-weight-bold">
       {{ item.class_name }}
@@ -29,7 +31,7 @@
       <v-dialog v-model="dialog" max-width="750">
         <template #activator="{ on, attrs }">
           <v-btn color="#353232" text elevation="0" v-bind="attrs" v-on="on">
-            Join now
+            Қосылу
           </v-btn>
         </template>
         <v-card class="mx-auto" max-width="750">
@@ -86,7 +88,7 @@
               color="#353232"
               @click="joinClass"
             >
-              <strong class="px-3">Join Class</strong>
+              <strong class="px-3">Қосылу</strong>
             </v-btn>
           </v-card-actions>
           <v-divider v-if="item.about_course" class="pb-2"></v-divider>
@@ -97,7 +99,7 @@
             <v-dialog v-model="subDialog" width="750">
               <template #activator="{ on, attrs }">
                 <v-btn color="black" text v-bind="attrs" v-on="on">
-                  <strong>About course</strong>
+                  <strong>Сынып туралы</strong>
                 </v-btn>
               </template>
               <v-card>
@@ -115,7 +117,7 @@
                     <v-row v-if="item.about_course">
                       <v-col lg="3">
                         <p class="text-uppercase font-weight-bold">
-                          About course
+                          Курс туралы
                         </p>
                       </v-col>
                       <v-col lg="9" class="text--686868"
@@ -124,7 +126,7 @@
                     </v-row>
                     <v-row>
                       <v-col lg="3">
-                        <p class="text-uppercase font-weight-bold">Syllabus</p>
+                        <p class="text-uppercase font-weight-bold">Силлабус</p>
                       </v-col>
                       <v-col lg="9" class="text--686868">
                         <v-list-item
@@ -150,7 +152,7 @@
                     color="#353232"
                     @click="joinClass"
                   >
-                    <strong class="px-3">Join Class</strong>
+                    <strong class="px-3">Қосылу</strong>
                   </v-btn>
                 </v-card-actions>
               </v-card>

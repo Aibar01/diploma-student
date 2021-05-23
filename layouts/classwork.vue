@@ -11,7 +11,7 @@
         <v-list-item-content>
           <v-list-item-title class="d-flex align-center">
             <nuxt-link color="#fff" :to="`/class/${$route.params.id}/classwork`"
-              ><v-icon>mdi-arrow-left</v-icon> Back</nuxt-link
+              ><v-icon>mdi-arrow-left</v-icon> Артқа</nuxt-link
             >
           </v-list-item-title>
         </v-list-item-content>
@@ -43,7 +43,7 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
-      <v-toolbar-title class="font-weight-bold">Detail</v-toolbar-title>
+      <v-toolbar-title class="font-weight-bold">Толығырақ</v-toolbar-title>
     </v-app-bar>
     <v-main>
       <nuxt />

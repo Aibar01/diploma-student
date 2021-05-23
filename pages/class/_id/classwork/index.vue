@@ -39,7 +39,7 @@
         {{ i.description }}
       </v-card-text>
       <v-card-text v-if="i.due_date" class="font-weight-bold">
-        Due to
+        Дейін уақыт
         {{ $moment(new Date(+i.due_date * 1000)).format('D MMM YYYY, h:mm') }}
       </v-card-text>
     </v-card>

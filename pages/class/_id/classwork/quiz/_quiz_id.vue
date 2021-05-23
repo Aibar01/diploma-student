@@ -23,7 +23,7 @@
           </v-card-text>
 
           <v-card-text class="font-weight-bold">
-            Due to 15.03.2021
+            Дейін уақыт 15.03.2021
           </v-card-text>
         </v-card>
       </v-col>
@@ -59,7 +59,7 @@
               </template>
               <v-card>
                 <v-card-subtitle class="pl-9 pb-0 pt-7"
-                  >Due to: 24 March 2021, 00:00</v-card-subtitle
+                  >Дейін уақыт: 24 March 2021, 00:00</v-card-subtitle
                 >
                 <v-card-title class="pl-9 pt-2">
                   <span class="headline">Quiz 1</span>

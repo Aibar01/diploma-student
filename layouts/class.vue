@@ -16,7 +16,7 @@
           >
         </v-list-item-content>
         <v-list-item-content v-else>
-          <v-list-item-title>Profile</v-list-item-title>
+          <v-list-item-title>Профиль</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -113,18 +113,16 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-tabs>
         <v-tabs-slider v-model="model" color="#353232"></v-tabs-slider>
-        <v-tab class="text-capitalize" @click="goLink('stream')">
-          Stream
-        </v-tab>
+        <v-tab class="text-capitalize" @click="goLink('stream')"> Жалпы </v-tab>
         <v-tab class="text-capitalize" @click="goLink('classwork')"
-          >Classwork</v-tab
+          >Сынып жұмысы</v-tab
         >
-        <v-tab class="text-capitalize" @click="goLink('people')">People</v-tab>
+        <v-tab class="text-capitalize" @click="goLink('people')">Адамдар</v-tab>
         <!-- <v-tab class="text-capitalize" @click="goLink('classwork')"
           >Grades</v-tab
         > -->
         <v-tab class="text-capitalize" @click="goLink('about')"
-          >About class</v-tab
+          >Курс туралы</v-tab
         >
       </v-tabs>
       <v-spacer />
@@ -154,12 +152,12 @@ export default {
       fixed: true,
       items: [
         {
-          title: 'Feed',
+          title: 'Басты бет',
           icon: 'mdi-view-dashboard',
           to: '/',
         },
         {
-          title: 'Notifications',
+          title: 'Хабарлама',
           icon: 'mdi-bell',
           to: '/notification',
         },

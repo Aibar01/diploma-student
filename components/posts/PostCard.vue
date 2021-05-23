@@ -28,7 +28,7 @@
 
     <v-card-actions>
       <v-btn color="black" class="text-capitalize" text>
-        <strong> Read more </strong>
+        <strong> Толығырақ оқу </strong>
       </v-btn>
     </v-card-actions>
   </v-card>

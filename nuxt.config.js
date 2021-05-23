@@ -40,6 +40,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -86,6 +87,10 @@ export default {
         },
       },
     },
+  },
+
+  image: {
+    // Options
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

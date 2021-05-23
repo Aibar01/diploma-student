@@ -55,10 +55,10 @@
             <v-list-item class="pl-0 grow">
               <v-list-item-content>
                 <div class="d-flex">
-                  <v-list-item-title>Your work</v-list-item-title>
+                  <v-list-item-title>Сіздікі</v-list-item-title>
                   <div>
                     <v-spacer></v-spacer>
-                    <v-list-item-subtitle>Assigned</v-list-item-subtitle>
+                    <v-list-item-subtitle>Жіберілді</v-list-item-subtitle>
                   </div>
                 </div>
               </v-list-item-content>
@@ -92,12 +92,12 @@
               class="text-capitalize py-7"
             >
               <v-icon class="mr-5">mdi-plus-circle-outline</v-icon>
-              <div>Add attachment</div>
+              <div>Файл қосу</div>
             </v-btn>
           </v-card-actions>
           <v-card-actions class="pt-0 pb-5 px-5">
             <v-btn color="#10AFA7" dark block class="text-capitalize py-7">
-              Submit homework
+              Тапсыру
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -107,7 +107,7 @@
               <v-list-item-content>
                 <div class="d-flex">
                   <v-list-item-title class="pl-2 text-h6 font-weight-regular"
-                    >Grade</v-list-item-title
+                    >Баға</v-list-item-title
                   >
                   <div>
                     <v-spacer></v-spacer>
@@ -128,7 +128,9 @@
           <v-card-title class="py-0">
             <v-list-item class="pl-0 pr-0 grow">
               <v-list-item-content>
-                <v-list-item-title class="title">Comments</v-list-item-title>
+                <v-list-item-title class="title"
+                  >Комментариалар</v-list-item-title
+                >
               </v-list-item-content>
             </v-list-item>
           </v-card-title>
@@ -182,7 +184,7 @@
               <v-text-field
                 v-model="comment"
                 class="pt-4 px-3"
-                label="Add comments"
+                label="Комментари құру"
               ></v-text-field>
               <v-btn
                 color="#10AFA7"
@@ -190,7 +192,7 @@
                 dark
                 class="text-capitalize"
                 type="submit"
-                >Create comment</v-btn
+                >Комментари құру</v-btn
               >
             </v-form>
           </v-card-actions>
